@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Crystal Collector</title>
+
+        <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <style type="text/css">
+
+            .crystal-image {
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="container">
+                <p id="game-title">
+                    <h1>Crystal Collector</h1>
+                </p>
+            </div>
+            <br />
+            <div class="container" id="game-instructions">
+                <p>You will be given a random number at the start of the game.  
+                </p>
+                <br />
+                <p>There are four crystals below. By clicking on a crystal, you will add a 
+                    specific amount of points to your total score.
+                </p>
+                <br />
+                <p>You win the game by matching your total score to the random number given 
+                    below. You lose the game if your total score goes above the random number.
+                </p>
+                <br />
+                <p>The value of each crystal is hidden from you until you click on it and it's 
+                    value is added to your total.
+                </p>
+                <br />
+                <p>Each time the game restarts, the game will change the value of each crystal.
+                </p>
+            </div>
+            <br />
+            <div class="container" id="number-to-guess">
+                <h1>Number to Guess: <span id="target-number"></span></h1>
+
+            </div>
+            <br />
+            <div class="container" id="win-loss-counter">
+                <p>Wins: <span id="win-counter"></span></p>
+                <br />
+                <p>Losses: <span id="loss-counter"></span></p>
+                
+            </div>
+            <br />
+            <div id="crystals">
+            </div>
+            <br />
+            <div class="container" id="total-score">
+                <p>Your total score is:</p>
+                <br />
+                <p><span id="score-counter"></span></p>
+            </div>
+
+
+        
+        </div>
+
+
+  <!-- Note that this div is now empty. We will fill it dynamically -->
+  
+
+  <!-- JAVASCRIPT  -->
+  <!-- ========================================= -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+  <script type="text/javascript" src="assets/javascript/game.js">
+  </script>
+
+
+    </body>
+</html>
