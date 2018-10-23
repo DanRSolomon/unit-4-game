@@ -1,17 +1,19 @@
+// Javascript page for Unit-4-Game - Crystal Collector
 
-var targetNumber = 53;
+var targetNumber = [Math.floor(Math.random() * 102) + 18];
 
 $("#target-number").text(targetNumber);
 
-var counter = 0;
+var scoreCounter = 0;
 
 // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
 // We begin by expanding our array to include four options.
-var numberOptions = [10, 5, 3, 7];
+var numberOptions = 0; 
+console.log(numberOptions);
 
 // Next we create a for loop to create crystals for every numberOption.
-for (var i = 0; i < numberOptions.length; i++) {
+for (var i = 1; i < 5; i++) {
 
   // For each iteration, we will create an imageCrystal
   var imageCrystal = $("<img>");
@@ -25,7 +27,8 @@ for (var i = 0; i < numberOptions.length; i++) {
 
   // Each imageCrystal will be given a data attribute called data-crystalValue.
   // This data attribute will be set equal to the array value.
-  imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+  numberOptions = [Math.floor(Math.random() * 11) + 1];
+  imageCrystal.attr("data-crystalvalue", numberOptions);
 
   // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
   $("#crystals").append(imageCrystal);
@@ -43,16 +46,18 @@ $(".crystal-image").on("click", function() {
   crystalValue = parseInt(crystalValue);
   // We then add the crystalValue to the user's "counter" which is a global variable.
   // Every click, from every crystal adds to the global counter.
-  counter += crystalValue;
+  scoreCounter += crystalValue;
 
   // All of the same game win-lose logic applies. So the rest remains unchanged.
-  alert("New score: " + counter);
+//   alert("New score: " + counter);
 
-  if (counter === targetNumber) {
+  $("#score-counter").text(scoreCounter);
+
+  if (scoreCounter === targetNumber) {
     alert("You win!");
   }
 
-  else if (counter >= targetNumber) {
+  else if (scoreCounter >= targetNumber) {
     alert("You lose!!");
   }
 
