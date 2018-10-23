@@ -1,0 +1,78 @@
+
+body {
+    background-image: url("https://www.friscenes.ch/wp-content/uploads/2018/01/background-pattern-design-31.jpg");
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.wrapper {
+    width: 960px;
+}
+
+#game-title {
+    color: white;
+    background: orangered;
+    left: auto;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px;
+    padding: 30px 5px;
+    width: 25%;
+}
+
+#game-instructions {
+    left: auto;
+    color: green;
+    background: pink;
+    margin: 5px;
+    padding: 30px 5px;
+    overflow-wrap: normal;
+    
+}
+
+.guess-win-row {
+    left: auto;
+    top: auto;
+}
+
+#number-to-guess {
+    left: auto;
+    background: rgb(51, 129, 51);
+    margin: 5px;
+    padding: 30px 5px;
+    font-size: 30px;
+    font-weight: bold;
+    width: 25%;
+}
+
+#win-loss-counter {
+    background: rgb(112, 203, 245);
+    top: auto;
+    left: 100px;
+    margin: 5px;
+    padding: 30px 5px;
+    width: 100px;
+}
+
+#crystals {
+}
+
+#total-score {
+    color: white;
+    background: rgb(55, 124, 118);
+    margin: 5px;
+    padding: 5px 5px; 
+}
+
+#score-counter {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+.crystal-image {
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+}
