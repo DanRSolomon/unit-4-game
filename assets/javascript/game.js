@@ -1,65 +1,67 @@
 // Javascript page for Unit-4-Game - Crystal Collector
-
-var targetNumber = [Math.floor(Math.random() * 102) + 18];
-
-$("#target-number").text(targetNumber);
-
 var scoreCounter = 0;
 
-// Now for the hard part. Creating multiple crystals each with their own unique number value.
+var targetNumber = 0
 
-// We begin by expanding our array to include four options.
+targetNumber = parseInt([Math.floor(Math.random() * 102) + 18]);
+$("#target-number").text(targetNumber);
+
+scoreCounter = 0;
+$("#score-counter").text(scoreCounter);
+console.log(scoreCounter, targetNumber)
+
+// newTargetNumber(targetNumber);
+// newScoreCounter(scoreCounter);
+console.log(scoreCounter, targetNumber)
+
+var winCounter = 0;
+var lossCounter = 0;
+$("#win-counter").text(winCounter);
+$("#loss-counter").text(lossCounter);
+
+console.log(scoreCounter)
 var numberOptions = 0; 
-console.log(numberOptions);
 
-// Next we create a for loop to create crystals for every numberOption.
 for (var i = 1; i < 5; i++) {
 
-  // For each iteration, we will create an imageCrystal
-  var imageCrystal = $("<img>");
+    var imageCrystal = $("#crystal" + [i]);
 
-  // First each crystal will be given the class ".crystal-image".
-  // This will allow the CSS to take effect.
-  imageCrystal.addClass("crystal-image");
+    // imageCrystal.addClass("crystal-image");
 
-  // Each imageCrystal will be given a src link to the crystal image
-  imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+    // imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
 
-  // Each imageCrystal will be given a data attribute called data-crystalValue.
-  // This data attribute will be set equal to the array value.
-  numberOptions = [Math.floor(Math.random() * 11) + 1];
-  imageCrystal.attr("data-crystalvalue", numberOptions);
+    numberOptions = [Math.floor(Math.random() * 11) + 1];
+    imageCrystal.attr("data-crystalvalue", numberOptions);
 
-  // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-  $("#crystals").append(imageCrystal);
+    $("#crystals").append(imageCrystal);
 }
 
-// This time, our click event applies to every single crystal on the page. Not just one.
+
+
 $(".crystal-image").on("click", function() {
 
-  // Determining the crystal's value requires us to extract the value from the data attribute.
-  // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-  // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-  // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+    var crystalValue = ($(this).attr("data-crystalvalue"));
+    crystalValue = parseInt(crystalValue);
+    console.log(scoreCounter);
+    scoreCounter += crystalValue;
+    console.log(scoreCounter);
 
-  var crystalValue = ($(this).attr("data-crystalvalue"));
-  crystalValue = parseInt(crystalValue);
-  // We then add the crystalValue to the user's "counter" which is a global variable.
-  // Every click, from every crystal adds to the global counter.
-  scoreCounter += crystalValue;
+    $("#score-counter").text(scoreCounter);
+    console.log(scoreCounter, targetNumber);
 
-  // All of the same game win-lose logic applies. So the rest remains unchanged.
-    //   alert("New score: " + counter);
-
-  $("#score-counter").text(scoreCounter);
-
-  if (scoreCounter === targetNumber) {
-    alert("You win!");
-  }
-
-  else if (scoreCounter >= targetNumber) {
-    alert("You lose!!");
-  }
+    if (scoreCounter == targetNumber) {
+        $("#win-counter").text(winCounter++);
+        targetNumber = parseInt([Math.floor(Math.random() * 102) + 18]);
+        $("#target-number").text(targetNumber);        
+        scoreCounter = 0;
+        $("#score-counter").text(scoreCounter);
+    } else if (scoreCounter > targetNumber) {
+        $("#loss-counter").text(lossCounter++);
+        targetNumber = parseInt([Math.floor(Math.random() * 102) + 18]);
+        $("#target-number").text(targetNumber);        
+        scoreCounter = 0;
+        $("#score-counter").text(scoreCounter);
+    }
 
 });
 
