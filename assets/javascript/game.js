@@ -22,11 +22,20 @@ $("#loss-counter").text(lossCounter);
 console.log(scoreCounter)
 var numberOptions = 0; 
 
+var crystalValueArray = [];
 for (var i = 1; i < 5; i++) {
     var imageCrystal = $("#crystal" + [i]);
-    numberOptions = [Math.floor(Math.random() * 11) + 1];
-    imageCrystal.attr("data-crystalvalue", numberOptions);
-    $("#crystals").append(imageCrystal);
+    // function checkNumber(numberOptions){
+        numberOptions = [Math.floor(Math.random() * 11) + 1];
+        // if (crystalValueArray.indexOf(numberOptions) === -1) {
+                imageCrystal.attr("data-crystalvalue", numberOptions);
+                $("#crystals").append(imageCrystal);
+    //     } else {
+    //         checkNumber(numberOptions);
+    //     }
+    // }
+
+   
 }
 
 
@@ -41,9 +50,10 @@ $(".crystal-image").on("click", function() {
 
     $("#score-counter").text(scoreCounter);
     console.log(scoreCounter, targetNumber);
-
+// debugger
     if (scoreCounter == targetNumber) {
-        $("#win-counter").text(winCounter++);
+        winCounter++;
+        $("#win-counter").text(winCounter);
         targetNumber = parseInt([Math.floor(Math.random() * 102) + 18]);
         $("#target-number").text(targetNumber);        
         scoreCounter = 0;
@@ -55,7 +65,8 @@ $(".crystal-image").on("click", function() {
             $("#crystals").append(imageCrystal);
         }
     } else if (scoreCounter > targetNumber) {
-        $("#loss-counter").text(lossCounter++);
+        lossCounter++;
+        $("#loss-counter").text(lossCounter);
         targetNumber = parseInt([Math.floor(Math.random() * 102) + 18]);
         $("#target-number").text(targetNumber);        
         scoreCounter = 0;

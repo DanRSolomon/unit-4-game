@@ -12,7 +12,7 @@ body {
 #game-title {
     color: white;
     background: orangered;
-    left: auto;
+    /* left: auto; */
     font-size: 30px;
     font-weight: bold;
     margin: 5px;
@@ -21,7 +21,7 @@ body {
 }
 
 #game-instructions {
-    left: auto;
+    /* left: auto; */
     color: green;
     background: pink;
     margin: 5px;
@@ -31,12 +31,13 @@ body {
 }
 
 .guess-win-row {
-    left: auto;
-    top: auto;
+    display: flex;
+    /* left: auto;
+    top: auto; */
 }
 
 #number-to-guess {
-    left: auto;
+    /* left: auto; */
     background: rgb(51, 129, 51);
     margin: 5px;
     padding: 30px 5px;
@@ -47,7 +48,7 @@ body {
 
 #win-loss-counter {
     background: rgb(112, 203, 245);
-    top: auto;
+    /* top: auto; */
     left: 100px;
     margin: 5px;
     padding: 30px 5px;
@@ -55,7 +56,7 @@ body {
 }
 
 #crystals {
-    display: flex;
+    /* display: flex; */
 
 }
 
